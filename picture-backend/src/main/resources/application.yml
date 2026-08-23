@@ -12,9 +12,9 @@ spring:
   # 数据库配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/yu_picture
-    username: root
-    password: 123456
+    url: jdbc:mysql://localhost:3306/picture
+    username: picture
+    password: N3Ef78MZWbYcPyEi
   # Redis 配置
   redis:
     database: 0
@@ -33,18 +33,18 @@ spring:
   # 空间图片分表
   shardingsphere:
     datasource:
-      names: yu_picture
+      names: picture
       yu_picture:
         type: com.zaxxer.hikari.HikariDataSource
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://localhost:3306/yu_picture
-        username: root
-        password: 123456
+        url: jdbc:mysql://localhost:3306/picture
+        username: picture
+        password: N3Ef78MZWbYcPyEi
     rules:
       sharding:
         tables:
           picture:
-            actual-data-nodes: yu_picture.picture # 动态分表
+            actual-data-nodes: picture.picture # 动态分表
             table-strategy:
               standard:
                 sharding-column: spaceId
@@ -62,7 +62,7 @@ mybatis-plus:
     # MyBatis 配置
     map-underscore-to-camel-case: false
     # 仅在开发环境打印日志
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config:
     enable-sql-runner: true
     db-config:
@@ -83,11 +83,11 @@ knife4j:
 ## 对象存储配置（需要从腾讯云获取）
 cos:
   client:
-    host: xxx
-    secretId: xxx
-    secretKey: xxx
-    region: xxx
-    bucket: xxx
+    host: https://picture-1326371626.cos.ap-shanghai.myqcloud.com
+    secretId: AKID1UAgz9BGF6ymT4qZE2lQ0UmwwmPsiS0f
+    secretKey: kLmIoddXJ2c3LZnT3SghlkYAdza5OTSJ
+    region: ap-shanghai
+    bucket: picture-1326371626
 
 ## 阿里云 AI 配置
 aliYunAi:
