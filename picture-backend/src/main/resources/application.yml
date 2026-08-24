@@ -13,8 +13,13 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/picture
-    username: picture
-    password: N3Ef78MZWbYcPyEi
+    username: root
+    password: root
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/picture
+#    username: picture
+#    password: N3Ef78MZWbYcPyEi
   # Redis 配置
   redis:
     database: 0
@@ -88,7 +93,19 @@ cos:
     secretKey: kLmIoddXJ2c3LZnT3SghlkYAdza5OTSJ
     region: ap-shanghai
     bucket: picture-1326371626
+  ## 面试报告专用存储桶（独立配置，不干扰原有 cos.client）
+  report:
+    host: https://interview-1326371626.cos.ap-shanghai.myqcloud.com
+    secretId: AKID1UAgz9BGF6ymT4qZE2lQ0UmwwmPsiS0f
+    secretKey: kLmIoddXJ2c3LZnT3SghlkYAdza5OTSJ
+    region: ap-shanghai
+    bucket: interview-1326371626
 
 ## 阿里云 AI 配置
 aliYunAi:
   apiKey: xxx
+
+## 面试 Agent 服务地址（简历解析后转发，未配置则跳过转发）
+## 注意：需带 /api 前缀（agent 服务的 context-path 是 /api）
+agent:
+  base-url: http://localhost:8124/api

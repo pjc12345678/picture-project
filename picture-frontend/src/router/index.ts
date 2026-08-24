@@ -15,6 +15,7 @@ import SearchPicturePage from '@/pages/SearchPicturePage.vue'
 import SpaceAnalyzePage from '@/pages/SpaceAnalyzePage.vue'
 import SpaceUserManagePage from '@/pages/admin/SpaceUserManagePage.vue'
 import UserExchangeVipPage from '@/pages/UserExchangeVipPage.vue'
+import InterviewPage from '@/pages/InterviewPage.vue'
 
 
 const router = createRouter({
@@ -102,6 +103,11 @@ const router = createRouter({
       path: '/user_exchange_vip',
       name: '用户兑换会员',
       component: UserExchangeVipPage,
+    },
+    {
+      path: '/interview',
+      name: 'AI模拟面试',
+      component: InterviewPage,
     },
     {
       path: '/about',

@@ -43,7 +43,7 @@
             </a-dropdown>
           </div>
           <div v-else>
-            <a-button type="primary" href="/user/login">登录</a-button>
+            <a-button type="primary" @click="doLogin">登录</a-button>
           </div>
         </div>
       </a-col>
@@ -125,6 +125,11 @@ const doMenuClick = ({ key }) => {
   router.push({
     path: key,
   })
+}
+
+// 跳转登录页
+const doLogin = () => {
+  router.push('/user/login')
 }
 
 // 用户注销

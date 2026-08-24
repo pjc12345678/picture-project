@@ -14,14 +14,15 @@ export const useLoginUserStore = defineStore('loginUser', () => {
    * 远程获取登录用户信息
    */
   async function fetchLoginUser() {
-    const res = await getLoginUserUsingGet()
-    if (res.data.code === 0 && res.data.data) {
-      loginUser.value = res.data.data
+    try {
+      const res = await getLoginUserUsingGet()
+      if (res.data.code === 0 && res.data.data) {
+        loginUser.value = res.data.data
+      }
+    } catch (e) {
+      // 后端不可用时保持未登录状态，避免路由守卫抛异常导致前端无法使用
+      console.error('获取登录用户失败：', e)
     }
-    // // 测试用户登录，3 秒后自动登录
-    // setTimeout(() => {
-    //   loginUser.value = { userName: '测试用户', id: 1 }
-    // }, 3000)
   }
 
   /**

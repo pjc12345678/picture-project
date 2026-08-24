@@ -38,6 +38,16 @@
       :total="total"
       @change="onPageChange"
     />
+    <!-- AI 模拟面试入口 -->
+    <a-button
+      type="primary"
+      shape="round"
+      size="large"
+      class="interview-entry"
+      @click="$router.push('/interview')"
+    >
+      🤖 AI 模拟面试
+    </a-button>
   </div>
 </template>
 
@@ -146,5 +156,12 @@ onMounted(() => {
 
 #homePage .tag-bar {
   margin-bottom: 16px;
+}
+
+#homePage .interview-entry {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 100;
 }
 </style>
