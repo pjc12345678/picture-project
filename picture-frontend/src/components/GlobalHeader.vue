@@ -34,6 +34,12 @@
                       我的空间
                     </router-link>
                   </a-menu-item>
+                  <a-menu-item>
+                    <router-link to="/user/editProfile">
+                      <EditOutlined />
+                      编辑资料
+                    </router-link>
+                  </a-menu-item>
                   <a-menu-item @click="doLogout">
                     <LogoutOutlined />
                     退出登录
@@ -52,7 +58,7 @@
 </template>
 <script lang="ts" setup>
 import { computed, h, ref } from 'vue'
-import { HomeOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons-vue'
+import { HomeOutlined, LogoutOutlined, EditOutlined, UserOutlined } from '@ant-design/icons-vue'
 import { MenuProps, message } from 'ant-design-vue'
 import { useRouter } from 'vue-router'
 import { useLoginUserStore } from '@/stores/useLoginUserStore.ts'
@@ -67,6 +73,12 @@ const originItems = [
     icon: () => h(HomeOutlined),
     label: '主页',
     title: '主页',
+  },
+  {
+    key: '/interview',
+    icon: () => h(EditOutlined),
+    label: 'AI模拟面试',
+    title: 'AI模拟面试',
   },
   {
     key: '/add_picture',

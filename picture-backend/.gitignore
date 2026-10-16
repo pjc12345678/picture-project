@@ -1,7 +1,8 @@
 ### Custom ###
+# 本地私有配置：含真实密钥，永不提交
 application-local.yml
-application-prod.yml
-application.yml
+application-local.yaml
+# 注意：application.yml 保持被跟踪，但里面只允许写 ${ENV_VAR:} 占位符，不得写真实密钥
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar

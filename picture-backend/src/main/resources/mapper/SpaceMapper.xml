@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yupi.yupicturebackend.mapper.SpaceMapper">
 
-    <resultMap id="BaseResultMap" type="com.yupi.yupicturebackend.model.entity.Space">
+    <resultMap id="BaseResultMap" type="com.pjc.picturebackend.model.entity.Space">
             <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="spaceName" column="spaceName" jdbcType="VARCHAR"/>
             <result property="spaceLevel" column="spaceLevel" jdbcType="INTEGER"/>

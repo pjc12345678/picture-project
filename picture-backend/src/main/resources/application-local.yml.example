@@ -1,0 +1,23 @@
+# 本地配置模板：复制本文件为 application-local.yml，填入自己的真实值即可
+#   copy application-local.yml.example application-local.yml
+# application-local.yml 已被 .gitignore 忽略，不会被提交；本模板可以安全提交
+# 由 application.yml 的 spring.profiles.active: local 自动加载并覆盖主配置
+
+spring:
+  datasource:
+    password: <your-mysql-password>
+  shardingsphere:
+    datasource:
+      yu_picture:
+        password: <your-mysql-password>
+
+cos:
+  client:
+    secretId: <your-cos-secret-id>
+    secretKey: <your-cos-secret-key>
+  report:
+    secretId: <your-cos-secret-id>
+    secretKey: <your-cos-secret-key>
+
+aliYunAi:
+  apiKey: <your-aliyun-ai-api-key>

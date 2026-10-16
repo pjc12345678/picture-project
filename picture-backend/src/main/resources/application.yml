@@ -8,18 +8,17 @@ server:
         max-age: 2592000
 spring:
   application:
-    name: yu-picture-backend
+    name: picture-backend
+  # 本地私有配置（真实密钥/密码）放 application-local.yml，该文件已被 .gitignore 忽略
+  profiles:
+    active: local
   # 数据库配置
   datasource:
+#  datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/picture
-    username: root
-    password: root
-#  datasource:
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: jdbc:mysql://localhost:3306/picture
-#    username: picture
-#    password: N3Ef78MZWbYcPyEi
+    username: picture
+    password: ${MYSQL_PASSWORD:}
   # Redis 配置
   redis:
     database: 0
@@ -44,7 +43,7 @@ spring:
         driver-class-name: com.mysql.cj.jdbc.Driver
         url: jdbc:mysql://localhost:3306/picture
         username: picture
-        password: N3Ef78MZWbYcPyEi
+        password: ${MYSQL_PASSWORD:}
     rules:
       sharding:
         tables:
@@ -89,21 +88,21 @@ knife4j:
 cos:
   client:
     host: https://picture-1326371626.cos.ap-shanghai.myqcloud.com
-    secretId: AKID1UAgz9BGF6ymT4qZE2lQ0UmwwmPsiS0f
-    secretKey: kLmIoddXJ2c3LZnT3SghlkYAdza5OTSJ
+    secretId: ${COS_SECRET_ID:}
+    secretKey: ${COS_SECRET_KEY:}
     region: ap-shanghai
     bucket: picture-1326371626
   ## 面试报告专用存储桶（独立配置，不干扰原有 cos.client）
   report:
     host: https://interview-1326371626.cos.ap-shanghai.myqcloud.com
-    secretId: AKID1UAgz9BGF6ymT4qZE2lQ0UmwwmPsiS0f
-    secretKey: kLmIoddXJ2c3LZnT3SghlkYAdza5OTSJ
+    secretId: ${COS_SECRET_ID:}
+    secretKey: ${COS_SECRET_KEY:}
     region: ap-shanghai
     bucket: interview-1326371626
 
-## 阿里云 AI 配置
+## 阿里云 AI 配置（密钥写在 application-local.yml 或设置环境变量 ALIYUN_AI_API_KEY）
 aliYunAi:
-  apiKey: xxx
+  apiKey: ${ALIYUN_AI_API_KEY:}
 
 ## 面试 Agent 服务地址（简历解析后转发，未配置则跳过转发）
 ## 注意：需带 /api 前缀（agent 服务的 context-path 是 /api）
